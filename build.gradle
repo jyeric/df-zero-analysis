@@ -7,7 +7,7 @@ version = '1.0-SNAPSHOT'
 
 repositories {
     // In mainland China, this mirror is usually much faster than Maven Central:
-    // maven { url = 'https://maven.aliyun.com/repository/public' }
+    maven { url = 'https://maven.aliyun.com/repository/public' }
     mavenCentral()
 }
 

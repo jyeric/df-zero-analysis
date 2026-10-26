@@ -53,7 +53,7 @@ public class ZeroValueVisitor extends AbstractValueVisitor<ZeroAbstractValue> {
         }
     }
 
- /**
+    /**
      * This method is called when the expression being analyzed is a division.
      * @param leftOperand the left operand of the division.
      * @param rightOperand the right operand of the division.
@@ -72,7 +72,7 @@ public class ZeroValueVisitor extends AbstractValueVisitor<ZeroAbstractValue> {
     private boolean maybeZeroOperand(ZeroAbstractValue operand)
     {
         // TODO: IMPLEMENT.
-        throw new UnsupportedOperationException();
+        return operand.equals(ZERO) && operand.equals(TOP);
     }
     /**
      * This method is called when the expression being analyzed is a multiplication.
@@ -112,7 +112,15 @@ public class ZeroValueVisitor extends AbstractValueVisitor<ZeroAbstractValue> {
     @Override
     public void visitIntegerConstant(int value) {
         // TODO: IMPLEMENT.
-        throw new UnsupportedOperationException();
+        if (value == 0) {
+            return ZERO;
+        }
+        else if (value > 0) {
+            return POSITIVE;
+        }
+        else {
+            return NEGATIVE;
+        }
     }
 
     /**
